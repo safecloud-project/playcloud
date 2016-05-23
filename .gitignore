@@ -1,0 +1,17 @@
+# Editor files
+*~
+*/.idea/
+*.iml
+*.swp
+# Log files
+*.log
+# Nodejs files
+*/node_modules/
+# Java files
+*.class
+*.jar
+*/target/
+*.war
+# Python files
+*.pyc
+*.DS_Store

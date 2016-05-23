@@ -1,0 +1,32 @@
+//protoc -I . --python_out=. --grpc_out=.      --plugin=protoc-gen-grpc=/grpc/bins/opt/grpc_python_plugin playcloud.proto
+//protoc -I . --java_out=.   --grpc-java_out=. --plugin=protoc-gen-grpc-java=grpc-java/compiler/build/binaries/java_pluginExecutable/protoc-gen-grpc-java playcloud.proto
+syntax = "proto3";
+option java_package = "ch.unine.iiun.safecloud";
+
+//the encoder service
+service EncoderDecoder {
+	rpc Encode (EncodeRequest) returns (EncodeReply) {}
+	rpc Decode (DecodeRequest) returns (DecodeReply) {}
+}
+
+//Data types
+message Strip {
+	bytes data = 1;
+}
+message EncodeRequest {
+	bytes payload = 1;
+	map<string,string> encoding_parameters = 2;
+}
+
+message EncodeReply {
+	repeated Strip strips = 1;
+}
+
+message DecodeRequest {
+	repeated Strip strips = 1;
+	map<string, string> decoding_parameters = 2;
+}
+
+message DecodeReply {
+	bytes dec_block = 1;
+}
