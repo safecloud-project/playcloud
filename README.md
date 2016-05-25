@@ -16,7 +16,7 @@ $git clone https://github.com/safecloud-project/playcloud.git
 $cd playcloud
 $docker-compose build
 $docker-compose up -d
-$touch my-file.txt
+$echo "hello" > my-file.txt
 $curl -v -X PUT `docker-machine ip playcloud`:3000/my-file.txt -T my-file.txt
 $curl -v -X GET `docker-machine ip playcloud`:3000/my-file.txt -o my-file.txt
 ```
