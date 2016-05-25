@@ -1,6 +1,24 @@
 # Playcloud
 
-An export of the main branch (git rev: 49f27af64c1bd69be06b96d4e9d3ba0bec516e12 ).
+## Requirements
+
+* docker [https://docs.docker.com/engine/quickstart/]
+* docker-compose [https://docs.docker.com/compose/install/]
+* docker-machine [https://docs.docker.com/machine/]
+
+## TL;DR
+
+```bash
+$docker-machine create -d virtualbox playcloud
+$docker-machine env playcloud
+$eval $(docker-machine env playcloud)
+$git clone https://github.com/safecloud-project/playcloud.git 
+$cd playcloud
+$docker-compose build
+$docker-compose up -d
+$touch my-file.txt
+$curl -v -X GET `docker-machine ip playcloud`:3000/my-file.txt -o my-file.txt
+```
 
 ## Architecture
 
@@ -10,10 +28,6 @@ Playcloud is split in 3 components:
 * encoder-decoder - A enconding/decoding component
 * storage - A database to saved the encoded data
 
-## Requirements
-
-* docker
-* docker-compose
 
 ## Run the server
 
@@ -51,3 +65,6 @@ curl -X PUT my-server:3000/my-file.txt -T my-file.txt
 ### Encoder/Decoder
 
 The encoder/decoder's configuration can be overloaded by environment variables. These values can be added/modified in the erasure.env file which is loaded when starting the server up.
+
+## Misc
+An export of the main branch (git rev: 49f27af64c1bd69be06b96d4e9d3ba0bec516e12 ).
