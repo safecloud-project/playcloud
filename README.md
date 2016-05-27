@@ -1,5 +1,9 @@
 # Playcloud
 
+This repository hosts the source code of the PlayCloud platform, an experimental testbed to evaluate different erasure-coding libraries. 
+Full paper here: http://link.springer.com/chapter/10.1007/978-3-319-39577-7_13 
+Feel free to contact the authors for a pre-print copy of the paper.
+
 ## Requirements
 
 * docker [https://docs.docker.com/engine/quickstart/]
